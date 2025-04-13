@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+<<<<<<< HEAD
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
@@ -17,11 +18,21 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+=======
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+>>>>>>> 2b79f49432d65598ee6ba7147141cbc5252a5a7a
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+<<<<<<< HEAD
 import androidx.compose.ui.unit.sp
 import com.example.lab6.ui.theme.Lab6Theme
 import androidx.compose.material.icons.Icons
@@ -34,6 +45,14 @@ import androidx.compose.runtime.getValue
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.ui.draw.scale
+=======
+import com.example.lab6.ui.theme.Lab6Theme
+import androidx.compose.material3.Icon
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.Phone
+
+>>>>>>> 2b79f49432d65598ee6ba7147141cbc5252a5a7a
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,6 +72,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun BusinessCard() {
+<<<<<<< HEAD
     var scale by remember { mutableStateOf(0.8f) }
     val animatedScale by animateFloatAsState(
         targetValue = scale,
@@ -115,17 +135,45 @@ fun BusinessCard() {
                 }
             }
         }
+=======
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        UserProfile(
+            imageId = R.drawable.image1,
+            name = "Nguyễn Minh Toàn",
+            title = "Sinh Viên"
+        )
+
+        Spacer(modifier = Modifier.height(24.dp))
+
+        // Phần 2: Thông tin liên hệ
+        ContactInfo(
+            email = "cthn2222@gmail.com.com",
+            phone = "0832250005",
+            website = "www.Bomvipqb.com"
+        )
+>>>>>>> 2b79f49432d65598ee6ba7147141cbc5252a5a7a
     }
 }
 
 @Composable
 fun UserProfile(imageId: Int, name: String, title: String) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2b79f49432d65598ee6ba7147141cbc5252a5a7a
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier.padding(16.dp)
     ) {
         Image(
             painter = painterResource(id = imageId),
+<<<<<<< HEAD
             contentDescription = "Hình đại diện",
             contentScale = ContentScale.Crop,
             modifier = Modifier
@@ -204,6 +252,80 @@ fun ContactRow(icon: @Composable () -> Unit, text: String) {
         )
     }
 }
+=======
+            contentDescription = null,
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .size(180.dp)
+                .padding(bottom = 16.dp)
+        )
+        Text(
+            text = name,
+            style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold)
+        )
+        Text(
+            text = title,
+            style = MaterialTheme.typography.bodySmall.copy(fontWeight = FontWeight.Bold)
+        )
+    }
+}
+@Composable
+fun ContactInfo(email: String, phone: String, website: String) {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
+        modifier = Modifier.padding(16.dp)
+    ) {
+        // Biểu tượng email
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.padding(vertical = 4.dp)
+        ) {
+            Icon(
+                imageVector = Icons.Default.Email,
+                contentDescription = "Email",
+                modifier = Modifier.size(24.dp)
+            )
+            Spacer(modifier = Modifier.width(16.dp))
+            Text(
+                text = email,
+                style = MaterialTheme.typography.bodySmall
+            )
+        }
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.padding(vertical = 4.dp,).offset(x = (-40).dp)
+        ) {
+            Icon(
+                imageVector = Icons.Default.Phone,
+                contentDescription = "Phone",
+                modifier = Modifier.size(24.dp)
+            )
+            Spacer(modifier = Modifier.width(16.dp))
+            Text(
+                text = phone,
+                style = MaterialTheme.typography.bodySmall
+            )
+        }
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.padding(vertical = 4.dp).offset(x = (-15).dp)
+        ){
+            Image(
+                painter = painterResource(id = R.drawable.home),
+                contentDescription = "Website",
+                modifier = Modifier.size(24.dp)
+            )
+            Spacer(modifier = Modifier.size(16.dp))
+            Text(
+                text = website,
+                style = MaterialTheme.typography.bodySmall
+            )
+        }
+    }
+}
+
+>>>>>>> 2b79f49432d65598ee6ba7147141cbc5252a5a7a
 
 @Preview(showBackground = true)
 @Composable
@@ -211,4 +333,8 @@ fun BusinessCardPreview() {
     Lab6Theme {
         BusinessCard()
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 2b79f49432d65598ee6ba7147141cbc5252a5a7a
